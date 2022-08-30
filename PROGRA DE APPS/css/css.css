@@ -1,0 +1,23 @@
+.btn{
+    background: rgb(142,58,180);
+    background: linear-gradient(90deg, rgba(142,58,180,1) 0%, rgba(167,247,0,1) 76%, rgba(252,176,69,1) 100%);
+}
+.d1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: lime;
+}
+.d2{
+    color: rgb(170, 0, 0);
+    font-size: 30px;
+    font-weight: bold;
+}
+.body{
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(224,12,45,1) 100%);
+}
+.l1{
+    color:black;
+    font-weight: bold;
+}
