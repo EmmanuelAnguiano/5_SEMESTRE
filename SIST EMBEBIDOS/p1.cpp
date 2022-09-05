@@ -1,26 +1,21 @@
-#include <iostream> //libreria para funciones de entrada y salida de flujo de info
-#define TEST 10
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+using std::cout;
+using std::endl;
 
-//declaraciones estandar de la consola
-using std::cout; //salida de texto por consola
-using std::endl; //salto de linea en consola
-using std::cin; //ingreso de texto por consola
-/*
-//punto de inicio de ejecucion 
-void mi_primer_funcion (void);
-int main(void){ //nucelo del programa
-	cout <<"el area es" <<endl;
-	cout << TEST <<endl;
-	//system("pause");     //el programa temrina hasta que termina la tecla
-	cin.get();
-	
-	return 0;
-}*/
-
-void mi_primer(void){
-	cout<<"hola hola hola hola hola"<<endl;
+void maxx(){
+	cout<< "unsigned: " <<endl;
+	cout<< pow(2,8)-1 <<endl;
+	cout<< pow(2,16)-1 <<endl;
+	cout<< pow(2,32)-1 <<endl;
+	cout<< pow(2,64)-1 <<endl;
 }
-int main(void){
-	mi_primer();
-	cin.get();;
+
+int main(void)
+{
+   maxx();
+   //return pow(8,2);
+   return 0;
 }
