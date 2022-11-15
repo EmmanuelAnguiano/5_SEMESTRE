@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toxicity classfier</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/toxicity"></script>
+</head>
+<body>
+    <h1>Toxicity classfier</h1>
+    <p>These are the tenceses we are classifying</p>
+    <ul id="sentences"></ul>
+
+    <pre id="results"></pre>
+
+    <script>
+        const sentences = [
+            'son of a bitch',
+            'kiss my ass',
+            'hello, I love you',
+            'text example'
+        ];
+
+        const ulElement = document.querySelector('#sentences'); //obtiene elemtnos del array
+        sentences.map(sentence => { //recorre el array (tipo for pero mas rapido)
+            let liElement = document.createElement('li');
+
+            liElement.textContent = sentence;
+            ulElement.appendChild(liElement);
+        });
+
+        const threshold = 0.5; //minimo de probabilidad para que sea insulto (true or false)
+        toxicity.load(threshold).then(model => { //viene del modelo tensorflow
+            model.classify(sentences).then(predictions => { //jala y manda a toxicity y lo clasifica
+                document.querySelector('#results').innerHTML = 
+                JSON.stringify(predictions, null, 2);
+                //console.log({predictions});
+            });
+        });
+    </script>
+</body>
+</html>

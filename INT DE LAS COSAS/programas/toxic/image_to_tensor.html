@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagenes to tensores</title>
+</head>
+<body>
+    <h1>Tensor to image</h1>
+    <canvas id="canvas"></canvas>
+
+    <h1>Image to tensor</h1>
+    <img src="../10_caracteristicas_de_los_perros_24265_600_square.jpg" id="image">
+
+    <canvas id="flippedCanvas"></canvas>
+
+    <canvas id="sliceCanvas"></canvas>
+    <script>
+        const randomTensor = tf.randomUniform([400,400,3]);
+        const canvas = document.querySelector('#canvas');
+
+        tf.browser.toPixels(randomTensor, canvas).then(()=>{
+            randomTensor.dispose();
+        });
+
+        const image = document.querySelector('#image');
+        const imageTensor = tf.browser.fromPixels(image);
+        console.log('created a tensor to with shape: ', imageTensor.shape);
+
+        const flippedImage = tf.reverse(imageTensor, 1); //tf.slice(tensor, punto incial en coordenada, punto final en px)
+        const flippedCanvas = document.querySelector('#flippedCanvas');
+        tf.browser.toPixels(flippedImage, flippedCanvas).then(()=>{
+            flippedImage.dispose();
+        });
+
+        const sliceImage = tf.slice(imageTensor, 20, 400);
+        const sliceCanvas = document.querySelector('#sliceCanvas');
+            tf.browser.toPixels(sliceImage, sliceCanvas).then(()=>{
+                sliceImage.dispose();
+        });
+    </script>
+</body>
+</html>

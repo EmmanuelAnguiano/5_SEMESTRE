@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.1"> </script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@1.0.0"> </script>
+</head>
+<body>
+  <h1>TensorFlow.js Mobilenet Demo</h1>
+  <p>Use the following file selector to upload the image for classify</p>
+  <input type="file" 
+    name="filepath" 
+    onchange="loadMessage(event)" />
+    <img id="image" />
+    <ul id="results"></ul>
+</body>
+
+<script>
+  function loadMessage(event){
+    const image=document.querySelector('#image');
+    const ul=document.querySelector('#results')
+    image.src=URL.createObjectURL(event.target.files[0]);
+
+    mobilenet.load().then(model => {
+      model.classify(image).then(predictions => {
+        ul.innerHTML='';
+        
+        predictions.map(prediction=>{
+          let li = document.createElement('li');
+          li.innerHTML = `Clase <b> ${prediction.className}</b> con probabilidad de ${prediction.probability}`
+          ul.appendChild(li);
+        });
+      });
+    });
+  }
+</script>
+</html>

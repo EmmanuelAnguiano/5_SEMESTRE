@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TensorFlow Operations</title>
+</head>
+<body>
+    <h1>Operaciones con TensorFlow</h1>
+    <h2>Resultados en consola...</h2>
+</body>
+<script>
+    /*
+    const a = tf.tensor1d([1, 2, 3, 4]);
+    const b = tf.tensor1d([10, 20, 30, 40]);
+    a.add(b).print();*/
+
+    /*
+    const a = tf.tensor1d([10, 20, 30, 40]);
+    const b = tf.tensor1d([1, 2, 3, 4]);
+    a.sub(b).print();*/
+
+    /*
+    const a = tf.tensor1d([1, 2, 3, 4]);
+    const b = tf.tensor1d([2, 3, 4, 5]);
+    a.mul(b).print();*/
+
+   /*
+    const a = tf.tensor1d([1, 4, 9, 16]);
+    const b = tf.tensor1d([1, 2, 3, 4]);        
+    a.div(b).print();*/
+
+    /*
+    const a = tf.tensor([[2, 3], [4, 5]])
+    const b = tf.tensor([[1, 2], [3, 0]]).toInt();
+    a.pow(b).print();*/
+
+    /*
+    const a = tf.tensor([[1, 2], [3, 4]])
+    const b = tf.tensor(2).toInt();
+    a.pow(b).print();*/
+
+    const x = tf.tensor1d([1, 2, 4, 64]);
+    x.sqrt().print();
+</script>
+
+</html>
